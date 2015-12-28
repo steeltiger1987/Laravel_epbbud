@@ -5,11 +5,11 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Subscribers</h3>
+                <h3 class="box-title">Users</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="users" class="table table-bordered table-hover">
+                <table id="users-table" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>No.</th>
@@ -50,7 +50,7 @@
 </div>
     <script>
         $(document).ready(function(){
-            $('#users').DataTable({
+            $('#users-table').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": false,
