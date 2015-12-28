@@ -41,6 +41,8 @@
                     </tr>
                     </tfoot>
                 </table>
+                <a href="{{asset('users/new')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> New User</a>
+            </div>
             </div>
             <!-- /.box-body -->
         </div>

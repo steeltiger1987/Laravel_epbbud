@@ -6,14 +6,14 @@
 
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel" style="height: 50px; text-align: left; color: white; font-size: 18px;">
-            <p>Welcome, Username</p>
+            <p>Welcome, {{Auth::user()->name}}</p>
         </div>
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
             <!-- Optionally, you can add icons to the links -->
-            <li id="quotation" class="active"></i><a href="#"><i class="fa fa-dollar"></i><span>Quotation</span></a></li>
+            <li id="quotation" class=""></i><a href="#"><i class="fa fa-dollar"></i><span>Quotation</span></a></li>
             <li id="invoice"><a href="#"><i class="fa fa-file-o"></i><span>Invoice</span></a></li>
             <li id="delivery"><a href="#"><i class="fa fa-truck"></i><span>Delivery Order</span></a></li>
             <li id="inventory"><a href="#"><i class="fa fa-cubes"></i><span>Inventory</span></a></li>

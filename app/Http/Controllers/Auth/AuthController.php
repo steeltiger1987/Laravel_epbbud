@@ -30,7 +30,6 @@ class AuthController extends Controller
      */
     protected $loginPath = '/login';
     protected $redirectPath = '/';
-
     protected $redirectTo = '/';
 
     /**
@@ -72,4 +71,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function getLogout() {
+        $this->logout();
+        return redirect('login');
+    }
+
 }
