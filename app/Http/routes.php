@@ -28,12 +28,18 @@ Route::get('/', function () {
     return view('backend.index');
 });
 Route::get('customers', 'CustomerController@index');
+Route::get('customers/new', 'CustomerController@newCustomer');
+Route::post('customers/create', 'CustomerController@storeCustomer');
+Route::any('customers/remove/{id}', 'CustomerController@removeCustomer');
+Route::get('customers/edit/{id}', 'CustomerController@editCustomer');
+Route::post('customers/update', 'CustomerController@updateCustomer');
 
 Route::get('products', 'ProductController@index');
 Route::get('products/new', 'ProductController@newProduct');
 Route::post('products/create', 'ProductController@storeProduct');
 Route::any('products/remove/{id}', 'ProductController@removeProduct');
 Route::get('products/edit/{id}', 'ProductController@editProduct');
+Route::post('products/update', 'ProductController@updateProduct');
 
 Route::get('users', 'UserController@index');
 

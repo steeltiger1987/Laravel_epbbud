@@ -52,4 +52,15 @@ class ProductController extends Controller
         return view('product.edit', ['product' => $product]);
     }
 
+    public function updateProduct(ProductRequest $request) {
+        $product = Product::where('id', $request->id)->first();
+        $product->name = $request->name;
+        $product->color = $request->color;
+        $product->quantity = $request->quantity;
+
+        $product->save();
+
+        return redirect('products');
+    }
+
 }

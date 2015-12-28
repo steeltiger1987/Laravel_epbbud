@@ -31,32 +31,34 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Products</h3>
+                    <h3 class="box-title">Customers</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="products-table" class="table table-bordered table-hover">
+                    <table id="customers-table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>No.</th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Colour</th>
-                            <th>Quantity</th>
+                            <th>Company Name</th>
+                            <th>PIC Name</th>
+                            <th>PIC Email</th>
+                            <th>PIC Contact</th>
+                            <th>Website</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if($products)
+                        @if($customers)
                         <?php $i=0; ?>
-                        @foreach($products as $product)
+                        @foreach($customers as $customer)
                             <tr>
                                 <td>{{++$i}}</td>
-                                <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td>{{$product->color}}</td>
-                                <td>{{$product->quantity}}</td>
-                                <td><a href="{{asset('products/edit/'.$product->id)}}"><i class="fa fa-edit"></i></a><a href="{{asset('products/remove/'.$product->id)}}"><i class="fa fa-trash"></i></a></td>
+                                <td>{{$customer->company_name}}</td>
+                                <td>{{$customer->pic_name}}</td>
+                                <td>{{$customer->pic_email}}</td>
+                                <td>{{$customer->pic_contact}}</td>
+                                <td>{{$customer->website}}</td>
+                                <td><a href="{{asset('customers/edit/'.$customer->id)}}"><i class="fa fa-edit"></i></a><a href="{{asset('customers/remove/'.$customer->id)}}"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         @endforeach
                         @endif
@@ -64,15 +66,16 @@
                         <tfoot>
                         <tr>
                             <th>No.</th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Colour</th>
-                            <th>Quantity</th>
+                            <th>Company Name</th>
+                            <th>PIC Name</th>
+                            <th>PIC Email</th>
+                            <th>PIC Contact</th>
+                            <th>Website</th>
                             <th>Actions</th>
                         </tr>
                         </tfoot>
                     </table>
-                    <a href="{{asset('products/new')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add Product</a>
+                    <a href="{{asset('customers/new')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Customer</a>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -82,7 +85,7 @@
     </div>
     <script>
         $(document).ready(function(){
-            $('#products-table').DataTable({
+            $('#customers-table').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": false,

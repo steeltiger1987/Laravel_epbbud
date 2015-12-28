@@ -9,8 +9,9 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="POST" action="/products/create">
+            <form class="form-horizontal" method="POST" action="/products/update">
                 {!! csrf_field() !!}
+                <input type="hidden" name="id" value="{{$product->id}}">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
