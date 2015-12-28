@@ -7,8 +7,11 @@
  */
 
 namespace App\Http\Controllers;
+use Auth;
 use App\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Hashing\BcryptHasher;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -46,5 +49,19 @@ class UserController extends Controller
             });
         }
         return redirect('users');
+    }
+
+    public function showProfile() {
+        return view('user.profile');
+    }
+
+    public function changePassword(BcryptHasher $hasher) {
+        $this->hasher = $hasher;
+        $user = User::where('id', Auth::user()->id)->first();
+        if(Hash::check($_REQUEST['password'], Auth::user()->password) && $_REQUEST['new_password'] == $_REQUEST['password_confirmation']) {
+            $user->password = bcrypt($_REQUEST['new_password']);
+            $user->save();
+        }
+        return redirect('/');
     }
 }

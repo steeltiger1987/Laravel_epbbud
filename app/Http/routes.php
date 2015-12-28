@@ -29,16 +29,17 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('login', 'Auth\AuthController@getLogin');
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('logout', 'Auth\AuthController@getLogout');
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-    Route::get('register', 'Auth\AuthController@getRegister');
-    Route::post('register', 'Auth\AuthController@postRegister');
+   // Route::get('register', 'Auth\AuthController@getRegister');
+    //Route::post('register', 'Auth\AuthController@postRegister');
     /*===================================================*/
     Route::group(['middleware' => 'auth'], function() {
         Route::get('/', function () {
             return view('backend.index');
         });
+        Route::get('profile', 'UserController@showProfile');
+        Route::post('change-password', 'UserController@changePassword');
+
 
         Route::get('customers', 'CustomerController@index');
         Route::get('customers/new', 'CustomerController@newCustomer');
@@ -58,4 +59,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('users/new', 'UserController@newUser');
         Route::post('users/create', 'UserController@createUser');
     });
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

@@ -1,93 +1,79 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Registration Page</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}ld() !!}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Name</label>
+
+                            <div class="col-md-6">
+                                <<!-- Theme style -->
     <link rel="stylesheet" href="{{ asset ("/AdminLTE/dist/css/AdminLTE.min.css")}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset ("/AdminLTE/plugins/iCheck/square/blue.css")}}">
+    <link rel="stylesheet" href="{{ asset ("/AdminLTE/plugins/iCheck/square/blue.css")}}                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body class="hold-transition register-page">
-<div class="register-box">
-    <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
-    </div>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">E-Mail Address</label>
 
-    <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership</p>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
 
-        <form method="POST" action="/register">
+                                @if ($errors->has('email'))
+                                  method="POST" action="/register
             {!! csrf_field() !!}
+ <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif name="name"                 </div>
+       fa fa            </div>
 
-            <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Full name" name="name">
-                <span class="fa fa-user form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email" name="email">
-                <span class="fa fa-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password" name="password">
-                <span class="fa fa-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation">
-                <span class="fa fa-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
-                        </label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-                </div>
-                <!-- /.col -->
-            </div>
-        </form>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-labe name="email"label>
 
-        <a href="login.html" class="text-center">I already have a membership</a>
+                       fa fa<div class="col-md-6">
+                                <input type="password" class="form-control" name="password">
+
+                                @if ($errors->has('password'))
+             name="password"        <span class="help-blockfa
+fa                                      <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                         name="password_confirmation"      </div>
+
+                 fa fa  <ckv class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password_confirmation">
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-user"></i>Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.form-box -->
 </div>
-<!-- /.register-box -->
-
-<!-- jQuery 2.1.4 -->
-<script src="{{ asset ("/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}}"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="{{ asset ("/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
-<!-- iCheck -->
-<script src="{{ asset ("/AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
-    });
-</script>
-</body>
-</html>
+@endsection
