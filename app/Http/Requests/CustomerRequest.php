@@ -17,7 +17,13 @@ class CustomerRequest extends Request
     }
 
     public function rules() {
-        return [];
+        return [
+            'company_name' => 'required|unique:customers,company_name',
+            'abbreviation' => 'required|alpha_num|unique:customers,abbreviation',
+            'default_discount' => 'numeric',
+            'company_address' => 'required',
+            'payment_terms' => 'required'
+        ];
     }
 
 }

@@ -11,11 +11,23 @@ namespace App\Http\Requests;
 
 class ProductRequest extends Request
 {
-    public function authorize() {
+    public function authorize()
+    {
         return true;
     }
 
-    public function rules() {
-        return [];
+    public function rules()
+    {
+        return [
+            'code'        => 'required|unique:products,code',//|unique:products,code',
+            'type'        => 'required',
+            'color'       => 'required|alpha_num',
+            'description' => 'required|string',
+            'quantity'    => 'required|integer',
+            'd13'         => 'required',
+            'd46'         => 'required',
+            'd6'          => 'required',
+            'image'       => 'image|max:2000'
+        ];
     }
 }

@@ -1,8 +1,13 @@
 @extends('backend.master')
 
+
+
 @section('content')
 <div class="row">
     <div class="col-xs-12">
+        <!--Session Msg Include -->
+        @include('common.message')
+
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Users</h3>
@@ -27,7 +32,14 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>
-                            <td><i id="{{$user->id}}" class="fa fa-edit"></i> </td>
+                            <td>
+                                <a href="{{route("user/edit",['id'=>$user->id])}}" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="{{route("user/delete",['id'=>$user->id])}}" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

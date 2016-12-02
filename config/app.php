@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -201,6 +205,10 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF'       => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'Image'     => Barryvdh\Snappy\Facades\SnappyImage::class,
 
     ],
 
